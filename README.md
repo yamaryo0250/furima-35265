@@ -35,7 +35,7 @@
 ### Association
 
 - belongs_to : user
-- belongs_to : buy_item
+- has_one : buy_item
 
 ## addresses テーブル
 
@@ -50,7 +50,7 @@
 
 ### Association
 
-- belongs_to : buy_items
+- belongs_to : buy_item
 
 ## buy_items テーブル
 | Column             | Type       | Options     |
