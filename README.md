@@ -4,28 +4,25 @@
 
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ----------- |
-| email              | string     | null: false |
-| password           | string     | null: false |
+| email              | string     | null: false, unique: true |
 | encrypted_password | string     | null: false |
 | nickname           | string     | null: false |
 | last_name          | string     | null: false |
 | first_name         | string     | null: false |
-| birth_year_id      | integer    | null: false |
-| birth_month_id     | integer    | null: false |
-| birth_day_id       | integer    | null: false |
+| last_kana          | string     | null: false |
+| first_kana         | string     | null: false |
+| birthday           | date       | null: false |
 
 ### Association
 
 - has_many : buy_items
 - has_many : items
-- belongs_to : address
 
  ## items テーブル
 
 | Column             | Type       | Options     |
 | -------------------| -----------| ----------- |
 | product            | string     | null: false |
-| image              | ActiveStorageで管理      |
 | genre_id           | integer    | null: false |
 | text               | text       | null: false |
 | condition_id       | integer    | null: false |
@@ -38,24 +35,22 @@
 ### Association
 
 - belongs_to : user
-- belongs_to : address
+- belongs_to : buy_item
 
 ## addresses テーブル
 
 | Column             | Type       | Options     |
 | -------------------| -----------| ----------- |
 | postal_code        | string     | null: false |
-| prefecture_id      | integer    | null: false |
+| area_id            | integer    | null: false |
 | municipality       | string     | null: false |
 | house_num          | string     | null: false |
 | building           | string     |             |
-| tel                | integer    | null: false |
+| tel                | string     | null: false |
 
 ### Association
 
-- has_many : buy_items
-- belongs_to : user
-- belongs_to : item
+- belongs_to : buy_items
 
 ## buy_items テーブル
 | Column             | Type       | Options     |
@@ -66,4 +61,5 @@
 ### Association
 
 - belongs_to : user
-- belongs_to : address
+- has_one    : address
+- belongs_to : item
