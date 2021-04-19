@@ -40,7 +40,7 @@ class Area < ActiveHash::Base
     { id: 38, name: '香川県' },
     { id: 39, name: '愛媛県' },
     { id: 40, name: '高知県' },
-    { id: 41, neme: '福岡県' },
+    { id: 41, name: '福岡県' },
     { id: 42, name: '佐賀県' },
     { id: 43, name: '長崎県' },
     { id: 44, name: '熊本県' },
