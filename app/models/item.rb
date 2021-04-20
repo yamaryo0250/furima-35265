@@ -13,9 +13,10 @@ class Item < ApplicationRecord
     validates :product
     validates :text
     validates :image
-    with_options format: { with: /\A[0-9]+\z/ }, numericality: { greater_than_or_equal_to: 300, less_than: 10_000_000 } do
-      validates :price
-    end
+    validates :price, format: { with: /\A[0-9]+\z/ }, numericality: { greater_than_or_equal_to: 300, less_than: 10_000_000 }
+    # with_options format: { with: /\A[0-9]+\z/ }, numericality: { greater_than_or_equal_to: 300, less_than: 10_000_000 } do
+    #   validates :price
+    # end
   end
   with_options numericality: { other_than: 1 } do
     validates :genre_id
