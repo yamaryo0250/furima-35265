@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order('created_at DESC')
-    
   end
 
   def new
@@ -25,9 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.order.present?
-      redirect_to action: :index
-    end
+    redirect_to action: :index if @item.order.present?
   end
 
   def update
@@ -57,7 +54,4 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:image, :product, :genre_id, :text, :condition_id, :price, :charge_id, :area_id,
                                  :day_id).merge(user_id: current_user.id)
   end
-
-
-
 end
